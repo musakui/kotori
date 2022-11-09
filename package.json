@@ -1,0 +1,13 @@
+{
+	"name": "@musakui/kotori",
+	"description": "minimal ActivityPub instance",
+	"author": "musakui",
+	"license": "MIT",
+	"repository": "github:musakui/kotori",
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+	},
+	"devDependencies": {
+	}
+}

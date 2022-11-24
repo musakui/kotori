@@ -1,20 +1,26 @@
 {
 	"name": "@musakui/kotori",
 	"description": "minimal ActivityPub instance",
+	"keywords": [
+		"ActivityPub"
+	],
 	"author": "musakui",
 	"license": "MIT",
 	"repository": "github:musakui/kotori",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"type": "module",
 	"files": [
 		"lib"
 	],
-	"types": "./lib/index.d.ts",
+	"types": "./lib/types.d.ts",
 	"exports": {
 		"./plugin": "./lib/plugin.js",
 		".": "./lib/index.js"
 	},
 	"scripts": {
+	},
+	"dependencies": {
+		"@musakui/fedi": "^0.0.6"
 	},
 	"devDependencies": {
 		"vite": "^3.2.4"

@@ -1,33 +1,4 @@
-type NodeInfoProtocols = 'activitypub' | 'diaspora' | 'xmpp'
-
-/**
- * @link https://github.com/jhass/nodeinfo/blob/main/schemas/2.1/schema.json
- */
-export interface NodeInfo {
-	version: '1.0' | '1.1' | '2.0' | '2.1'
-	software: {
-		name: string
-		version: string
-		homepage?: string
-		repository?: string
-	}
-	protocols: NodeInfoProtocols[]
-	services: {
-		inbound: string[]
-		outbound: string[]
-	}
-	openRegistrations: boolean
-	usage: {
-		users: {
-			total?: number
-			activeHalfYear?: number
-			activeMonth?: number
-		}
-		localPosts?: number
-		localComments?: number
-	}
-	metadata: Record<string, any>
-}
+import type { NodeInfo } from '@musakui/fedi'
 
 export interface WellKnownOptions {
 	/**

@@ -7,20 +7,22 @@
 	"author": "musakui",
 	"license": "MIT",
 	"repository": "github:musakui/kotori",
-	"version": "0.0.2",
+	"version": "0.0.5",
 	"type": "module",
 	"files": [
+		"*.d.ts",
 		"lib"
 	],
 	"types": "./lib/types.d.ts",
 	"exports": {
+		"./handler": "./lib/handler/index.js",
 		"./plugin": "./lib/plugin.js",
 		".": "./lib/index.js"
 	},
 	"scripts": {
 	},
 	"dependencies": {
-		"@musakui/fedi": "^0.0.6"
+		"@musakui/fedi": "^0.0.11"
 	},
 	"devDependencies": {
 		"vite": "^3.2.4"

@@ -1,5 +1,5 @@
-import type { KotoriProfile } from './profile/config'
-import type { WellKnownOptions } from './well-known/config'
+import type { ProfileConfig } from './profile/config'
+import type { WellKnownConfig } from './well-known/config'
 
 export interface GeneratedFile {
 	/**
@@ -24,44 +24,40 @@ export interface GeneratedFile {
 
 type GeneratedFiles<T = GeneratedFile> = Record<string, T>
 
-export interface KotoriPluginOptions {
+export interface UserConfig {
 	/**
 	 * domain for website. required during build
 	 */
 	domain: string
 
 	/**
-	 * profiles to generate. the key will be used as the profile id
+	 * shared public key (PEM string) for all actors
 	 */
-	profiles?: Record<string, KotoriProfile>
+	sharedPublicKey?: string
 
 	/**
 	 * common prefix for profiles
 	 *
-	 * user profile will be found at `/u/[username]` by default
+	 * user profiles will be found at `/[pid]` by default
 	 *
-	 * @default 'u'
+	 * @default ''
 	 */
-	profilePath?: string
+	profilesPath?: string
 
 	/**
-	 * common prefix for outbox (posts)
-	 *
-	 * user outbox will be found at `/o/[username]` by default
-	 *
-	 * @default 'o'
+	 * additional `@context` for profiles
 	 */
-	outboxPath?: string
+	profileContext?: Record<string, string>
 
 	/**
-	 * options for `.well-known` files
+	 * user profiles. the key will be used as the internal ID
 	 */
-	wellKnown?: WellKnownOptions
+	profiles?: Record<string, ProfileConfig | string>
 
 	/**
-	 * other files to be generated. key will be used as path to file
+	 * config for `.well-known` files
 	 */
-	files?: GeneratedFiles | ((f: GeneratedFiles<Omit<GeneratedFile, 'appType'>>) => GeneratedFiles)
+	wellKnown?: WellKnownConfig
 
 	/**
 	 * process headers for all generated files

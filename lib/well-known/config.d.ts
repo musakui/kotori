@@ -1,6 +1,6 @@
 import type { NodeInfo } from '@musakui/fedi'
 
-export interface WellKnownOptions {
+export interface WellKnownConfig {
 	/**
 	 * directory to put well-known files.
 	 *

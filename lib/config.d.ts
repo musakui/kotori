@@ -45,11 +45,6 @@ export interface UserConfig {
 	profilesPath?: string
 
 	/**
-	 * additional `@context` for profiles
-	 */
-	profileContext?: Record<string, string>
-
-	/**
 	 * user profiles. the key will be used as the internal ID
 	 */
 	profiles?: Record<string, ProfileConfig | string>

@@ -1,15 +1,16 @@
 import type {
-	Actor,
-	SecPublicKey,
-	ActivityEndpoint,
-	WebFinger,
+	SecurityKey,
+	ActivityPubActor,
+	OrderedCollection,
+	ActivityPubActivity,
+	JSONResourceDescriptor,
 } from '@musakui/fedi'
 
 export interface OutboxConfig {
 	items?: object[]
 	index?: string
-	raw?: Partial<ActivityEndpoint>
 	pagePrefix?: string
+	raw?: OrderedCollection<NonNullable<ActivityPubActivity['type']>>
 }
 
 export interface ProfileConfig {
@@ -26,15 +27,15 @@ export interface ProfileConfig {
 	/**
 	 * Other actor information
 	 */
-	actor?: Partial<Actor>
+	actor?: Partial<ActivityPubActor>
 
 	/**
 	 * Additional WebFinger data
 	 */
-	webfinger?: Partial<WebFinger>
+	webfinger?: Partial<JSONResourceDescriptor>
 
 	/**
 	 * Public Key PEM
 	 */
-	publicKey?: string | Partial<SecPublicKey>
+	publicKey?: string | Partial<SecurityKey>
 }

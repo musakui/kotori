@@ -22,7 +22,7 @@
 	"scripts": {
 	},
 	"dependencies": {
-		"@musakui/fedi": "^0.0.11"
+		"@musakui/fedi": "^0.3.0"
 	},
 	"devDependencies": {
 		"vite": "^4.0.0"

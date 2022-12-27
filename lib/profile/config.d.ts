@@ -6,11 +6,13 @@ import type {
 	JSONResourceDescriptor,
 } from '@musakui/fedi'
 
+type OutboxCollection = OrderedCollection<NonNullable<ActivityPubActivity['type']>>
+
 export interface OutboxConfig {
 	items?: object[]
 	index?: string
 	pagePrefix?: string
-	raw?: OrderedCollection<NonNullable<ActivityPubActivity['type']>>
+	raw?: Partial<OutboxCollection>
 }
 
 export interface ProfileConfig {
@@ -22,7 +24,7 @@ export interface ProfileConfig {
 	/**
 	 * Actor outbox config
 	 */
-	outbox?: OutboxConfig
+	outbox: string | OutboxConfig
 
 	/**
 	 * Other actor information
@@ -38,4 +40,19 @@ export interface ProfileConfig {
 	 * Public Key PEM
 	 */
 	publicKey?: string | Partial<SecurityKey>
+}
+
+export interface ResolvedOutboxConfig {
+	items: object[]
+	indexPath: string
+	pagePrefix: string
+	index: OutboxCollection
+}
+
+export interface ResolvedProfileConfig {
+	path: string
+	actorPath: string
+	actor: ActivityPubActor
+	outbox: ResolvedOutboxConfig
+	webfinger: JSONResourceDescriptor
 }
